@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-import google.generativeai as genai
+import google.generativeai as genai 
 
 load_dotenv()
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
@@ -12,7 +12,7 @@ def resume_feedback(skills: list, text: str) -> str:
 You are a world-class resume reviewer.
 
 Below is the extracted resume text, enclosed in triple backticks.
-Also provided is a list of detected technical skills: [{skills_str}].
+Also provided is a list of detected technical skills: [{skills_str}]. 
 
 Please review and provide feedback with the following structure, using **bold section headings** and Markdown bullets (no asterisks for bold, use '-' for bullets):
 
