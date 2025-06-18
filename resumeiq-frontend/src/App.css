@@ -135,6 +135,52 @@
   inherits: false;
 }
 
+/* Limelight font class */
+.limelight-regular {
+  font-family: "Limelight", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Large heading styles */
+.large-heading {
+  font-size: 2.5rem !important; /* 40px */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 640px) {
+  .large-heading {
+    font-size: 3rem !important; /* 48px */
+  }
+}
+
+@media (min-width: 768px) {
+  .large-heading {
+    font-size: 3.5rem !important; /* 56px */
+  }
+}
+
+@media (min-width: 1024px) {
+  .large-heading {
+    font-size: 4rem !important; /* 64px */
+  }
+}
+
+/* DM Serif Text font classes */
+.dm-serif-text-regular {
+  font-family: "DM Serif Text", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.dm-serif-text-regular-italic {
+  font-family: "DM Serif Text", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
 /* Animated background */
 .animated-background {
   background: #ffffff;
