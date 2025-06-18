@@ -50,7 +50,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-white via-blue-50 to-indigo-100 flex flex-col items-center justify-center px-2 sm:px-4">
+    <div className="animated-background flex flex-col items-center justify-center px-2 sm:px-4">
       {/* Main content */}
       <div className="flex flex-col items-center justify-center w-full min-h-screen max-w-2xl mx-auto py-8 sm:py-16">
         {/* Header */}
