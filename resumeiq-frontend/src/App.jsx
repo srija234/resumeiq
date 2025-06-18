@@ -50,9 +50,9 @@ export default function App() {
   };
 
   return (
-    <div className="animated-background flex flex-col items-center justify-center px-2 sm:px-4">
+    <div className="animated-background flex flex-col items-center justify-center px-2 sm:px-4 funnel-display">
       {/* Main content */}
-      <div className="flex flex-col items-center justify-center w-full min-h-screen max-w-2xl mx-auto py-8 sm:py-16">
+      <div className="flex flex-col items-center justify-center w-full min-h-screen max-w-4xl mx-auto py-8 sm:py-16">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
           <h1 className="large-heading font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-2 sm:mb-3 limelight-regular">
@@ -64,7 +64,7 @@ export default function App() {
         </div>
 
         {/* Upload Card */}
-        <div className="upload-card-container mb-8">
+        <div className="upload-card-container mb-8 w-full">
           {/* Animated gradient border */}
           <div className="upload-card-border">
             {/* Card content */}
@@ -209,11 +209,11 @@ export default function App() {
 
         {/* Results Section */}
         {result && (
-          <div className="mt-8 space-y-8 animate-fade-in-up">
-            <div className="upload-card-container">
+          <div className="mt-8 space-y-8 animate-fade-in-up w-full">
+            <div className="upload-card-container w-full">
               <div className="upload-card-border">
                 <div className="upload-card-content p-6">
-                  <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                  <h2 className="text-2xl font-bold text-gray-800 mb-4 delius-regular">
                     Your Skills
                   </h2>
                   <SkillsChips skills={result.skills} />
@@ -221,10 +221,10 @@ export default function App() {
               </div>
             </div>
 
-            <div className="upload-card-container">
+            <div className="upload-card-container w-full">
               <div className="upload-card-border">
                 <div className="upload-card-content p-6">
-                  <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                  <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center delius-regular">
                     Feedback
                   </h2>
                   <FeedbackMarkdown feedback={result.feedback} />
@@ -232,10 +232,10 @@ export default function App() {
               </div>
             </div>
 
-            <div className="upload-card-container">
+            <div className="upload-card-container w-full">
               <div className="upload-card-border">
                 <div className="upload-card-content p-6">
-                  <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                  <h2 className="text-2xl font-bold text-gray-800 mb-4 delius-regular">
                     Recommended Jobs
                   </h2>
                   <JobCards jobs={result.matched_jobs} />

@@ -1,11 +1,13 @@
 #root {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
-  min-width: 100vw;
-  min-height: 100vh;
   margin: 0;
   padding: 0;
   text-align: center;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 .card {
@@ -321,4 +323,30 @@
     --color3: #f472b6;
     --color4: #ec4899;
   }
+}
+
+.prose {
+  text-align: left !important;
+}
+.prose p, .prose ul, .prose ol, .prose li {
+  text-align: left !important;
+}
+
+.funnel-display {
+  font-family: "Funnel Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.delius-regular {
+  font-family: "Delius", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.prose strong, .prose b {
+  font-family: "Delius", cursive !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
 }

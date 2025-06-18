@@ -5,7 +5,6 @@ export default function JobCards({ jobs }) {
 
   return (
     <div>
-      <div className="text-lg font-bold mb-3 text-blue-900">Matching Jobs:</div>
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
         {jobs.map((job, idx) => (
           <div key={idx} className="border rounded p-3 bg-blue-50 flex flex-col">
