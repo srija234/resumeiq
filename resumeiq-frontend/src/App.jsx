@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SkillsChips from "./components/SkillsChips";
 import FeedbackMarkdown from "./components/FeedbackMarkdown";
 import JobCards from "./components/JobCards";
+import GoogleDrivePicker from "./components/GoogleDrivePicker";
 import "./App.css";
 
 export default function App() {
@@ -17,6 +18,11 @@ export default function App() {
       setFile(selectedFile);
       setFileName(selectedFile.name);
     }
+  };
+
+  const handleDrivePick = (driveFile) => {
+    setFile(driveFile);
+    setFileName(driveFile.name);
   };
 
   const handleUpload = async () => {
@@ -61,7 +67,8 @@ export default function App() {
         <div className="w-full bg-white/80 rounded-2xl shadow-sm p-4 sm:p-8 mb-8">
           <div className="flex flex-col items-center">
             {/* File Upload Area */}
-            <div className="w-full mb-4 sm:mb-6">
+            <div className="w-full mb-4 sm:mb-6 flex flex-col gap-2">
+              {/* Local file upload */}
               <label className="flex flex-col items-center justify-center w-full h-28 sm:h-32 border-2 border-dashed border-indigo-200 rounded-xl cursor-pointer bg-white hover:bg-indigo-50 transition-colors duration-200">
                 <div className="flex flex-col items-center justify-center pt-4 pb-4">
                   <svg
@@ -93,6 +100,8 @@ export default function App() {
                   className="hidden"
                 />
               </label>
+              {/* Google Drive upload */}
+              <GoogleDrivePicker onPick={handleDrivePick} disabled={uploading} />
             </div>
 
             {/* Selected File Info */}
