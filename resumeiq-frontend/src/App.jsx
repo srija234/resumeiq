@@ -55,9 +55,12 @@ export default function App() {
       <div className="flex flex-col items-center justify-center w-full min-h-screen max-w-4xl mx-auto py-8 sm:py-16">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
-          <h1 className="large-heading font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-2 sm:mb-3 limelight-regular">
-            Resume Analyzer
-          </h1>
+          <div className="flex items-center justify-center gap-4 w-full flex-nowrap">
+            <img src="/logo.png" alt="Logo" className="h-[5rem] w-auto object-contain" />
+            <h1 className="large-heading font-bold leading-none bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent limelight-regular m-0">
+              Resume Analyzer
+            </h1>
+          </div>
           <p className="text-lg sm:text-xl md:text-2xl text-gray-600 font-medium dm-serif-text-regular">
             Upload your resume to get personalized feedback and job matches
           </p>
