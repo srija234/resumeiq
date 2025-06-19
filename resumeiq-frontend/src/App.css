@@ -448,3 +448,11 @@ body {
 .fallback-spin {
   animation: fallback-spin 1s linear infinite;
 }
+
+.wavy-underline {
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #f59e42;
+  text-underline-offset: 2px;
+  font-weight: 500;
+}
