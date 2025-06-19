@@ -1,10 +1,28 @@
 import os
 from dotenv import load_dotenv
 import google.generativeai as genai 
+import re
 
 load_dotenv()
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 genai.configure(api_key=GOOGLE_API_KEY)
+
+def bold_section_headers(feedback: str) -> str:
+    # This will match headers at the start of a line, possibly with leading spaces
+    feedback = re.sub(r'^(\\s*)Strengths(\\s*)$', r'\\1**Strengths**\\2', feedback, flags=re.MULTILINE)
+    feedback = re.sub(r'^(\\s*)Improvements Needed(\\s*)$', r'\\1**Improvements Needed**\\2', feedback, flags=re.MULTILINE)
+    feedback = re.sub(r'^(\\s*)Quick Tips(\\s*)$', r'\\1**Quick Tips**\\2', feedback, flags=re.MULTILINE)
+    # For Rating, match lines like 'Rating: 7/10' or 'Rating: 8/10'
+    feedback = re.sub(r'^(\\s*)(Rating: ?[\\d/]+)(\\s*)$', r'\\1**\\2**\\3', feedback, flags=re.MULTILINE)
+    return feedback
+
+def underline_section_headers(feedback: str) -> str:
+    # Underline the section headers using <u> tags
+    feedback = re.sub(r'^(\\s*)Strengths(\\s*)$', r'\\1<u>Strengths</u>\\2', feedback, flags=re.MULTILINE)
+    feedback = re.sub(r'^(\\s*)Improvements Needed(\\s*)$', r'\\1<u>Improvements Needed</u>\\2', feedback, flags=re.MULTILINE)
+    feedback = re.sub(r'^(\\s*)Quick Tips(\\s*)$', r'\\1<u>Quick Tips</u>\\2', feedback, flags=re.MULTILINE)
+    feedback = re.sub(r'^(\\s*)(Rating: ?[\\d/]+)(\\s*)$', r'\\1<u>\\2</u>\\3', feedback, flags=re.MULTILINE)
+    return feedback
 
 def resume_feedback(skills: list, text: str) -> str:
     skills_str = ", ".join(skills) if skills else "None detected"
@@ -54,6 +72,7 @@ Provide feedback using this EXACT format with brief, clear points. Do NOT use an
     try:
         model = genai.GenerativeModel("gemini-1.5-flash")
         response = model.generate_content(prompt)
-        return response.text
+        # Post-process to ensure headers are underlined
+        return underline_section_headers(response.text)
     except Exception as e:
         return f"Error from Gemini: {e}"

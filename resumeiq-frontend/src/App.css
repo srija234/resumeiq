@@ -17,6 +17,92 @@ body {
 .read-the-docs {
   color: #888;
 }
+
+/* Simple and reliable spinner */
+.spinner {
+  width: 20px !important;
+  height: 20px !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  border-top: 2px solid white !important;
+  border-radius: 50% !important;
+  animation: spin 1s linear infinite !important;
+  display: inline-block !important;
+  flex-shrink: 0 !important;
+}
+
+@keyframes spin {
+  0% { 
+    transform: rotate(0deg); 
+  }
+  100% { 
+    transform: rotate(360deg); 
+  }
+}
+
+/* Alternative spinner for debugging */
+.spinner-alt {
+  width: 20px;
+  height: 20px;
+  background: conic-gradient(from 0deg, transparent, white);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+}
+
+/* Custom spinning animation for better compatibility */
+@keyframes custom-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.custom-spin {
+  animation: custom-spin 1s linear infinite;
+}
+
+/* Pulse animation for loading states */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Loading text animation */
+@keyframes loading-dots {
+  0%, 20% {
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0.25em 0 0 rgba(255, 255, 255, 0.8),
+                 0.5em 0 0 rgba(255, 255, 255, 0.8);
+  }
+  40% {
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 0.25em 0 0 rgba(255, 255, 255, 0.8),
+                 0.5em 0 0 rgba(255, 255, 255, 0.8);
+  }
+  60% {
+    text-shadow: 0.25em 0 0 rgba(255, 255, 255, 1),
+                 0.5em 0 0 rgba(255, 255, 255, 0.8);
+  }
+  80%, 100% {
+    text-shadow: 0.25em 0 0 rgba(255, 255, 255, 1),
+                 0.5em 0 0 rgba(255, 255, 255, 1);
+  }
+}
+
+.loading-text {
+  animation: loading-dots 1.4s infinite;
+}
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -94,8 +180,6 @@ body {
 .animation-delay-4000 {
   animation-delay: 4s;
 }
-
-
 
 .card-glow {
   position: relative;
@@ -349,4 +433,26 @@ body {
   font-family: "Delius", cursive !important;
   font-weight: 700 !important;
   font-style: normal !important;
+}
+
+/* Fallback spinner animation */
+@keyframes fallback-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.fallback-spin {
+  animation: fallback-spin 1s linear infinite;
+}
+
+.wavy-underline {
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #f59e42;
+  text-underline-offset: 2px;
+  font-weight: 500;
 }
